@@ -735,10 +735,10 @@ namespace ImFluent
 
     static void RenderElevationBorder( ImDrawList * dl, const ImRect & bb, float rounding, ImU32 sides, ImU32 bottom, float bottom_thickness )
     {
-        dl->AddRect( bb.Min, bb.Max, sides, rounding, 0, 1.f );
+        //dl->AddRect( bb.Min, bb.Max, sides, rounding, 0, 1.f );
 
-        const float t = ( bottom_thickness > 0.f ) ? bottom_thickness : 1.f;
-        dl->AddRectFilled( ImVec2( bb.Min.x + rounding, bb.Max.y - t ), ImVec2( bb.Max.x - rounding, bb.Max.y ), bottom );
+        //const float t = ( bottom_thickness > 0.f ) ? bottom_thickness : 1.f;
+        //dl->AddRectFilled( ImVec2( bb.Min.x + rounding, bb.Max.y - t ), ImVec2( bb.Max.x - rounding, bb.Max.y ), bottom );
     }
 
     static void RenderElevationShadow( ImDrawList * dl, const ImRect & bb, float rounding, int layers )
