@@ -1789,7 +1789,7 @@ bool ImFluent::CheckboxEx( const char * label, int * v_tri, bool * v_bool )
         if ( v_tri )
         {
             int & s = *v_tri;
-            s       = ( s > 0 ) ? 0 : 1;
+            s       = s == 1 ? 0 : ( s == 0 ? -1 : 1 ); 
         }
         if ( v_bool )
         {
