@@ -1658,7 +1658,12 @@ bool ImFluent::DropDownButtonEx( const char * label, bool * v_state, bool * drop
     const ImGuiID id_chev = w->GetID( ( const void * )( ( intptr_t )id_main + 1 ) );
     if ( !ImGui::ItemAdd( bb_total, id_main ) )
         return false;
-
+    if ( split )
+    {
+        if ( !ImGui::ItemAdd( bb_chev, id_chev ) )
+            return false;
+    }
+    
     bool main_hovered = false, main_held = false;
     const bool main_pressed = ImGui::ButtonBehavior( bb_main, id_main, &main_hovered, &main_held );
 
