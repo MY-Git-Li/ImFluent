@@ -1832,7 +1832,16 @@ bool ImFluent::CheckboxEx( const char * label, int * v_tri, bool * v_bool )
     const ImU32 fillAnim   = AnimateColorU32( id, boxFill );
     const ImU32 strokeAnim = AnimateColorU32( id, boxStroke, 0.083f, 1 );
     ImGui::PushStyleColor( ImGuiCol_Border, strokeAnim );
-    ImGui::RenderFrame( box_bb.Min, box_bb.Max, fillAnim, true, r );
+    if (checked || indet)
+    {
+        //选中/不确定态：关闭RenderFrame自带边框，消除圆角暗环
+        ImGui::RenderFrame(box_bb.Min, box_bb.Max, fillAnim, false, r);
+    }
+    else
+    {
+        //未选中态保留边框
+        ImGui::RenderFrame(box_bb.Min, box_bb.Max, fillAnim, true, r);
+    }
     ImGui::PopStyleColor();
 
     if ( checked )
